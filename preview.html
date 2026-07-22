@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>danA Wellness — Preview</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Work+Sans:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@300;400;600&display=swap');
+
+:root{
+  --ivory:#FAF6F0;
+  --ivory-deep:#F1E9DE;
+  --ink:#2A2721;
+  --ink-soft:#736B5E;
+  --rose:#BBD8B0;
+  --rose-deep:#43613A;
+  --sage:#84A878;
+  --gold:#43613A;
+  --dark-soft:#4B463C;
+  --line:rgba(42,39,33,0.13);
+  --max:1180px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--ivory);
+  color:var(--ink);
+  font-family:'Work Sans', sans-serif;
+  font-weight:300;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 700px 500px at 12% 8%, rgba(185,140,130,0.14), transparent 60%),
+    radial-gradient(ellipse 600px 500px at 88% 30%, rgba(150,167,141,0.13), transparent 60%),
+    radial-gradient(ellipse 700px 600px at 50% 95%, rgba(185,151,90,0.10), transparent 60%);
+}
+header.site, section, footer.site{ position:relative; z-index:1; }
+a{color:inherit;}
+img{max-width:100%; display:block;}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 6vw;}
+
+::selection{background:var(--rose); color:#fff;}
+
+/* ---------- HEADER / NAV ---------- */
+header.site{
+  position:sticky; top:0; z-index:100;
+  background:rgba(250,246,240,0.75);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:0 1px 0 rgba(42,39,33,0.06);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1.1rem 6vw;
+}
+.logo{
+  font-family:'Cormorant Garamond', serif;
+  font-size:1.9rem;
+  letter-spacing:.01em;
+  text-decoration:none;
+}
+.logo .lc{ font-weight:600; }
+.logo .cap{ font-weight:700; color:var(--rose-deep); }
+
+nav.main{ display:flex; align-items:center; gap:2.2rem; }
+nav.main a{
+  text-decoration:none; color:var(--ink-soft); font-size:.85rem; letter-spacing:.04em;
+  position:relative; padding-bottom:3px;
+}
+nav.main a::after{
+  content:""; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--rose-deep);
+  transition:width .25s ease;
+}
+nav.main a:hover::after, nav.main a.active::after{ width:100%; }
+nav.main a.active{ color:var(--ink); }
+
+.btn{
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-size:.8rem; letter-spacing:.06em; text-transform:uppercase;
+  text-decoration:none; color:var(--ink);
+  border:1px solid var(--ink);
+  padding:.75rem 1.6rem;
+  transition:background .25s ease, color .25s ease, border-color .25s ease;
+  background:transparent; cursor:pointer; font-family:inherit;
+}
+.btn:hover{ background:var(--ink); color:var(--ivory); }
+.btn.filled{ background:var(--rose-deep); border-color:var(--rose-deep); color:#fff; }
+.btn.filled:hover{ background:var(--ink); border-color:var(--ink); }
+.btn.small{ padding:.55rem 1.2rem; font-size:.72rem; }
+
+.nav-toggle{
+  display:none; background:none; border:none; cursor:pointer; padding:.4rem;
+}
+.nav-toggle span{ display:block; width:22px; height:1px; background:var(--ink); margin:5px 0; }
+
+/* ---------- HERO (generic, reused) ---------- */
+.page-hero{
+  padding:6.5rem 6vw 5rem; text-align:center;
+}
+.page-hero .eyebrow{
+  font-size:.75rem; letter-spacing:.18em; text-transform:uppercase; color:var(--rose-deep);
+  margin-bottom:1rem;
+}
+.page-hero h1{
+  font-family:'Cormorant Garamond', serif; font-weight:700;
+  font-size:clamp(2.4rem, 5.5vw, 4rem); line-height:1.1; margin:0 0 1.2rem;
+}
+.page-hero p.sub{
+  font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:400;
+  font-size:clamp(1.1rem, 2vw, 1.35rem); color:var(--ink-soft);
+  max-width:44ch; margin:0 auto;
+}
+
+/* ---------- SECTION ---------- */
+section{ padding:7rem 0; }
+.eyebrow{
+  font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--rose-deep);
+  display:flex; align-items:center; gap:.8rem; margin-bottom:1rem;
+}
+.eyebrow::before{ content:""; width:24px; height:1px; background:var(--rose-deep); }
+.eyebrow .kr-inline{
+  font-family:'Noto Serif KR', serif; font-weight:300; text-transform:none;
+  letter-spacing:.02em; color:var(--ink-soft); font-size:.85rem;
+  margin-left:.6em;
+}
+.eyebrow .kr-inline .dot{ margin-right:.6em; color:var(--rose-deep); }
+h2{
+  font-family:'Cormorant Garamond', serif; font-weight:700;
+  font-size:clamp(1.9rem, 3.6vw, 2.7rem); line-height:1.2; margin:0 0 1.1rem;
+}
+h3{
+  font-family:'Cormorant Garamond', serif; font-weight:600;
+  font-size:1.5rem; margin:0 0 .5rem;
+}
+.lede{
+  font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1.2rem;
+  color:var(--ink-soft); max-width:56ch; line-height:1.6;
+}
+p{ color:var(--ink-soft); }
+.krword{ font-family:'Noto Serif KR', serif; color:var(--ink); }
+
+.divider{ height:1px; background:var(--line); border:none; margin:0; }
+
+/* ---------- GLASS CARD (shared aesthetic) ---------- */
+.glass{
+  background:rgba(255,253,249,0.55);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.6);
+  border-radius:22px;
+  box-shadow:0 8px 32px rgba(42,39,33,0.06), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+/* Raised hover reserved for genuinely clickable cards only */
+a.glass:hover, details.item.glass:hover{
+  transform:translateY(-3px);
+  box-shadow:0 16px 40px rgba(42,39,33,0.09), inset 0 1px 0 rgba(255,255,255,0.6);
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+a.glass, details.item.glass{ transition:transform .35s ease, box-shadow .35s ease; }
+
+.kr-sub{
+  display:block; font-family:'Noto Serif KR', serif; font-weight:300;
+  font-size:.95rem; color:var(--ink-soft); letter-spacing:.02em; margin-top:.5rem;
+}
+
+/* ---------- HOME PAGE BLOCKS ---------- */
+.philosophy-block{ }
+.phi-grid{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:9vw; align-items:center; }
+.phi-grid.reverse{ grid-template-columns:1.15fr 0.85fr; }
+.phi-grid.reverse .phi-img{ order:2; }
+.phi-grid.extra-gap{ gap:11vw; }
+@media (max-width:1100px){
+  .phi-grid.extra-gap{ gap:9vw; }
+}
+.phi-copy p{ max-width:48ch; margin:0 0 1.3rem; font-size:1.02rem; }
+.phi-img{
+  aspect-ratio:4/5; position:relative; overflow:hidden; padding:0;
+}
+.phi-img img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.phi-img .tint{
+  position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(165deg, rgba(187,216,176,0.38), rgba(67,97,58,0.22));
+  mix-blend-mode:multiply;
+}
+.phi-img .tint::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(165deg, rgba(250,246,240,0.12), rgba(250,246,240,0) 40%);
+}
+
+.name-note{
+  margin-top:1.6rem; padding:1.6rem 1.8rem;
+  border-left:2px solid var(--gold);
+  font-size:.95rem;
+}
+
+/* ---------- SPECIAL OFFERS BANNER (home) ---------- */
+.offers-banner{
+  display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap;
+  text-decoration:none; color:inherit;
+  background:linear-gradient(120deg, rgba(185,151,90,0.14), rgba(185,140,130,0.10));
+  backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(185,151,90,0.35);
+  border-radius:22px;
+  padding:2.2rem 2.8rem;
+  box-shadow:0 10px 34px rgba(185,151,90,0.12);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.offers-banner:hover{ transform:translateY(-3px); box-shadow:0 16px 42px rgba(185,151,90,0.2); }
+.offers-banner .ob-left{ display:flex; align-items:center; gap:1.4rem; flex-wrap:wrap; }
+.offers-banner .ob-tag{
+  font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:#fff;
+  background:var(--gold); padding:.4rem .85rem; border-radius:20px; white-space:nowrap;
+}
+.offers-banner h3{ color:var(--ink); margin:0; font-size:1.5rem; }
+.offers-banner p{ color:var(--ink-soft); margin:.3rem 0 0; font-size:.92rem; }
+.offers-banner .ob-arrow{
+  font-family:'Work Sans', sans-serif; font-size:.8rem; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--ink); border:1px solid var(--ink); padding:.75rem 1.5rem; white-space:nowrap; border-radius:30px;
+  transition:border-color .25s ease, background .25s ease, color .25s ease;
+}
+.offers-banner:hover .ob-arrow{ background:var(--ink); color:var(--ivory); }
+
+@media (max-width:640px){
+  .offers-banner{ padding:1.8rem; border-radius:18px; }
+}
+.cta-band{
+  background:var(--dark-soft); color:var(--ivory); text-align:center; padding:4.5rem 6vw;
+  border-radius:28px; max-width:calc(var(--max) - 12vw); margin:0 auto;
+}
+.cta-band h2{ color:var(--ivory); }
+.cta-band p{ color:rgba(250,246,240,0.7); }
+.cta-band .btn{ border-color:var(--ivory); color:var(--ivory); margin-top:1.2rem; }
+.cta-band .btn:hover{ background:var(--ivory); color:var(--ink); }
+
+/* ---------- TREATMENTS PAGE ---------- */
+.tabs{
+  display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center;
+  margin:0 0 3.5rem; border-bottom:1px solid var(--line); padding-bottom:2rem;
+}
+.tab-btn{
+  font-family:'Work Sans', sans-serif; font-size:.82rem; letter-spacing:.05em;
+  padding:.7rem 1.4rem; border:1px solid var(--line); background:transparent;
+  color:var(--ink-soft); cursor:pointer; transition:all .25s ease;
+}
+.tab-btn:hover{ border-color:var(--rose-deep); color:var(--ink); }
+.tab-btn.active{ background:var(--dark-soft); border-color:var(--dark-soft); color:var(--ivory); }
+
+.tab-panel{ display:none; }
+.tab-panel.active{ display:block; animation:fadeIn .4s ease; }
+@keyframes fadeIn{ from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+
+.group-title{
+  font-family:'Cormorant Garamond', serif; font-size:1.7rem; font-weight:600;
+  margin:3.6rem 0 .5rem;
+}
+.group-sub{ color:var(--ink-soft); font-size:.95rem; margin:0 0 2rem; max-width:60ch; }
+.group-title:first-of-type{ margin-top:0; }
+
+.card-grid{
+  display:grid; grid-template-columns:repeat(2, 1fr); gap:1.4rem; margin-bottom:1.4rem;
+}
+.card-grid.cols-3{ grid-template-columns:repeat(3, 1fr); }
+.tcard{ padding:1.8rem 2rem; }
+
+.simple-list{ padding:2rem 2.2rem; margin-bottom:1.4rem; }
+.simple-list ul{ margin:.6rem 0 0; padding-left:1.2rem; }
+.simple-list li{ margin-bottom:.4rem; color:var(--ink-soft); }
+
+details.item{
+  padding:1.5rem 1.8rem; margin-bottom:1rem;
+}
+details.item summary{
+  cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:baseline;
+  font-family:'Cormorant Garamond', serif; font-size:1.25rem; font-weight:600; gap:1rem;
+}
+details.item summary::-webkit-details-marker{ display:none; }
+details.item summary .price{
+  font-family:'Work Sans', sans-serif; font-size:.85rem; letter-spacing:.03em; color:var(--rose-deep); white-space:nowrap;
+}
+details.item summary .plus{
+  font-size:1.4rem; color:var(--ink-soft); transition:transform .25s ease; margin-left:.4rem;
+}
+details.item[open] summary .plus{ transform:rotate(45deg); }
+.item-body{ margin-top:1.1rem; padding-top:1.1rem; border-top:1px solid rgba(42,39,33,0.08); }
+.item-body p{ font-size:.92rem; margin:0 0 .8rem; }
+.item-body .cols{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; }
+.item-body h4{
+  font-family:'Work Sans', sans-serif; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--rose-deep); margin:0 0 .5rem;
+}
+.item-body ul{ margin:0; padding-left:1.1rem; }
+.item-body li{ font-size:.88rem; color:var(--ink-soft); margin-bottom:.3rem; }
+
+.offer-card{
+  padding:2.3rem; margin-bottom:1.6rem; position:relative;
+}
+.offer-card .tag{
+  position:absolute; top:1.5rem; right:1.5rem; font-size:.68rem; letter-spacing:.1em;
+  text-transform:uppercase; background:var(--gold); color:#fff; padding:.35rem .8rem; border-radius:20px;
+}
+.offer-price{ display:flex; align-items:baseline; gap:.8rem; margin:.6rem 0 1rem; flex-wrap:wrap; }
+.offer-price .was{ text-decoration:line-through; color:var(--ink-soft); font-size:.95rem; }
+.offer-price .now{ font-family:'Cormorant Garamond', serif; font-size:1.9rem; color:var(--rose-deep); }
+
+.sig-card{
+  padding:2.6rem; margin-bottom:1.6rem;
+}
+.sig-head{
+  display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:.8rem;
+  margin-bottom:.4rem;
+}
+.sig-head h3{ margin:0; }
+.sig-meta{ font-size:.82rem; color:var(--ink-soft); letter-spacing:.03em; }
+.sig-price{ font-family:'Cormorant Garamond', serif; font-size:1.6rem; color:var(--rose-deep); }
+.sig-card ul{ margin:.8rem 0 0; padding-left:1.2rem; }
+.sig-card li{ color:var(--ink-soft); font-size:.92rem; }
+
+.guidance{
+  margin-top:3rem; padding:1.8rem 2rem;
+}
+.guidance summary{
+  cursor:pointer; list-style:none; font-family:'Cormorant Garamond', serif; font-weight:600;
+  font-size:1.15rem; display:flex; align-items:center; gap:.7rem;
+}
+.guidance summary::-webkit-details-marker{ display:none; }
+.guidance summary::before{ content:"ⓘ"; color:var(--sage); }
+.guidance p{ margin:1rem 0 0; font-size:.9rem; }
+
+/* ---------- CALL US BANNER (book appointment) ---------- */
+.call-banner{
+  display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap;
+  text-decoration:none; color:inherit;
+  padding:1.8rem 2.6rem;
+  max-width:680px; margin:0 auto;
+}
+.call-banner .cb-left{ display:flex; align-items:center; gap:1.4rem; }
+.call-banner .ic{ width:40px; height:40px; color:var(--rose-deep); flex-shrink:0; }
+.call-banner .ic svg{ width:100%; height:100%; }
+.call-banner h3{ margin:0 0 .25rem; font-size:1.3rem; }
+.call-banner p{ margin:0; font-size:.88rem; max-width:38ch; }
+.call-banner .cb-number{
+  font-family:'Cormorant Garamond', serif; font-weight:700; font-size:1.5rem; color:var(--rose-deep);
+  white-space:nowrap;
+}
+@media (max-width:640px){
+  .call-banner{ padding:1.6rem 1.8rem; }
+  .call-banner .cb-number{ font-size:1.3rem; }
+}
+
+/* ---------- BOOK / CONTACT FORMS ---------- */
+.form-wrap{ max-width:680px; margin:0 auto; padding:2.6rem 2.8rem; }
+.field{ margin-bottom:1.5rem; }
+.field label{ display:block; font-size:.78rem; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:.5rem; }
+.field input, .field select, .field textarea{
+  width:100%; padding:.85rem 1rem; border:1px solid rgba(42,39,33,0.14); border-radius:12px;
+  background:rgba(255,255,255,0.55);
+  font-family:'Work Sans', sans-serif; font-size:.95rem; color:var(--ink);
+}
+.field input:focus, .field select:focus, .field textarea:focus{
+  outline:none; border-color:var(--rose-deep);
+}
+.field-row{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; }
+.form-note{ font-size:.85rem; color:var(--ink-soft); margin-top:1.2rem; }
+.form-success{
+  display:none; border-left:2px solid var(--sage); padding:1.4rem 1.6rem;
+  margin-top:1.4rem; font-size:.92rem; border-radius:12px;
+  background:rgba(150,167,141,0.12);
+}
+.form-success.show{ display:block; }
+
+/* Multi-select checkbox groups (Book Appointment) */
+.check-groups{
+  max-height:260px; overflow-y:auto; padding:1.3rem 1.6rem; border-radius:16px;
+  border:1px solid rgba(42,39,33,0.1); background:rgba(255,255,255,0.4);
+}
+.check-groups fieldset{ border:none; margin:0 0 1.4rem; padding:0; }
+.check-groups fieldset:last-child{ margin-bottom:0; }
+.check-groups legend{
+  font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--rose-deep);
+  margin-bottom:.7rem; padding:0;
+}
+.check-groups label{
+  display:flex; align-items:center; gap:.6rem; font-size:.9rem; color:var(--ink);
+  margin-bottom:.55rem; cursor:pointer; text-transform:none; letter-spacing:0;
+}
+.check-groups input[type="checkbox"]{ width:auto; accent-color:var(--rose-deep); }
+.selected-count{ font-size:.78rem; color:var(--ink-soft); margin-top:.6rem; display:block; }
+
+/* Highlight: request online vs call */
+.choice-row{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; margin-bottom:1rem; }
+.choice-card{ padding:2rem; text-align:center; }
+.choice-card .ic{ width:32px; height:32px; margin:0 auto 1rem; color:var(--rose-deep); }
+.choice-card .ic svg{ width:100%; height:100%; }
+.choice-card h3{ margin:0 0 .4rem; }
+.choice-card p{ font-size:.88rem; margin:0 0 1.2rem; }
+.choice-or{
+  text-align:center; font-family:'Cormorant Garamond', serif; font-style:italic; color:var(--ink-soft);
+  margin:0 0 1.4rem; font-size:1.05rem;
+}
+
+.info-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1.4rem; margin-bottom:4rem; }
+.info-card{ padding:2.2rem; text-align:center; }
+.info-card .ic{ width:34px; height:34px; margin:0 auto 1rem; color:var(--rose-deep); }
+.info-card .ic svg{ width:100%; height:100%; }
+.info-card h4{ font-family:'Cormorant Garamond', serif; font-size:1.2rem; font-weight:600; margin:0 0 .5rem; }
+.info-card p{ font-size:.9rem; margin:0; }
+
+.map-block{
+  padding:3rem 2rem; position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:center; margin-bottom:4rem;
+  text-align:center; color:var(--ink-soft); font-size:.85rem; letter-spacing:.04em;
+}
+
+/* ---------- FOOTER ---------- */
+footer.site{
+  background:rgba(241,233,222,0.5); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border-top:1px solid rgba(255,255,255,0.5); padding:4rem 0 2rem; margin-top:3rem;
+}
+.foot-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:3rem; margin-bottom:2.5rem; }
+.foot-logo{ font-family:'Cormorant Garamond', serif; font-size:1.7rem; font-weight:600; margin-bottom:.9rem; }
+.foot-desc{ font-size:.88rem; max-width:32ch; }
+.foot-col h5{ font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--rose-deep); margin:0 0 1rem; }
+.foot-col a{ display:block; text-decoration:none; color:var(--ink-soft); font-size:.88rem; margin-bottom:.6rem; }
+.foot-col a:hover{ color:var(--ink); }
+.foot-bottom{
+  border-top:1px solid var(--line); padding-top:1.4rem; display:flex; justify-content:space-between;
+  font-size:.75rem; color:var(--ink-soft); flex-wrap:wrap; gap:.8rem;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px){
+  nav.main{
+    position:fixed; top:63px; left:0; right:0; bottom:0; background:var(--ivory);
+    opacity:1; backdrop-filter:none; -webkit-backdrop-filter:none; z-index:150;
+    flex-direction:column; justify-content:flex-start; align-items:flex-start;
+    padding:2.4rem 6vw; gap:1.6rem; transform:translateX(100%); transition:transform .3s ease;
+  }
+  nav.main.open{ transform:translateX(0); }
+  .nav-toggle{ display:block; }
+  .phi-grid, .phi-grid.reverse{ grid-template-columns:1fr; }
+  .phi-grid.reverse .phi-img{ order:0; }
+  .card-grid, .card-grid.cols-3{ grid-template-columns:1fr; }
+  .item-body .cols{ grid-template-columns:1fr; }
+  .field-row{ grid-template-columns:1fr; }
+  .info-grid{ grid-template-columns:1fr; }
+  .choice-row{ grid-template-columns:1fr; }
+  .foot-grid{ grid-template-columns:1fr; gap:2rem; }
+}
+
+
+.page{ display:none; }
+.page.active{ display:block; }
+nav.main a.active{ color:var(--ink); }
+nav.main a.active::after{ width:100%; }
+
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="#home" class="logo"><span class="lc">dan</span><span class="cap">A</span></a>
+  <nav class="main">
+    <a href="#home" data-page="home">Home</a>
+    <a href="#treatments" data-page="treatments">Treatments</a>
+    <a href="#book" data-page="book">Book Appointment</a>
+    <a href="#contact" data-page="contact">Contact</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <a href="#book" class="btn filled small">Book Now</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="page" id="page-home">
+<section class="page-hero">
+  <div class="eyebrow" style="justify-content:center;">danA Wellness<span class="kr-inline"><span class="dot">·</span>단아 웰니스</span></div>
+  <h1>Beauty and Wellness,<br>Together</h1>
+  <p class="sub" style="margin-top:1rem;">Personalized aesthetic and wellness care, rooted in Korean skincare philosophy.</p>
+  <div style="margin-top:2rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+    <a href="#book" class="btn filled">Book Appointment</a>
+    <a href="#treatments" class="btn">View Treatments</a>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:0; padding-bottom:1rem;">
+  <a href="#treatments" data-open-tab="tab-offers" class="offers-banner">
+    <div class="ob-left">
+      <span class="ob-tag">Special Offers</span>
+      <div>
+        <h3>Save up to 47% on select treatments</h3>
+        <p>Botox Bank, IV bundles, and a limited Oligio + Rejuran package</p>
+      </div>
+    </div>
+    <span class="ob-arrow">View Offers →</span>
+  </a>
+</section>
+
+<!-- Beauty Begins with Wellness -->
+<div class="philosophy-block">
+  <section class="wrap phi-grid">
+    <div class="phi-img glass" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=800&h=1000&fit=crop&auto=format&q=80" alt="IV hydration therapy setup">
+      <div class="tint"></div>
+    </div>
+    <div class="phi-copy">
+      <div class="eyebrow">Our Philosophy</div>
+      <h2>Beauty Begins with Wellness</h2>
+      <p>Our treatments support your body, skin, and confidence at every stage of life — because hydration, nutrition, and cellular health all shape how skin looks and feels.</p>
+      <p>By pairing advanced aesthetics with IV hydration and nutrient therapy, we help you look refreshed and feel your best, from the inside out.</p>
+    </div>
+  </section>
+</div>
+
+<!-- Timeless Beauty -->
+<div class="philosophy-block">
+  <section class="wrap phi-grid reverse extra-gap">
+    <div class="phi-img glass" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1741896135490-4062a3b21abf?w=800&h=1000&fit=crop&auto=format&q=80" alt="Skincare serum bottles and droppers">
+      <div class="tint"></div>
+    </div>
+    <div class="phi-copy">
+      <div class="eyebrow">The Name danA</div>
+      <h2>Timeless Beauty,<br>Thoughtfully Refined</h2>
+      <p>Timeless beauty isn't about turning back the clock — it's about embracing every stage of life with confidence and grace.</p>
+      <div class="name-note glass">
+        <strong>danA</strong> comes from the Korean word <span class="krword">dana-hada (단아하다)</span> — a beauty that is graceful, refined, and quietly elegant. It reflects our philosophy of personalized care that enhances your natural features without looking overdone.
+      </div>
+      <p style="margin-top:1.2rem; font-size:.92rem;">We continuously refine our skills through advanced training in Seoul, bringing the latest Korean aesthetic techniques to every treatment.</p>
+    </div>
+  </section>
+</div>
+
+<!-- Skin Longevity -->
+<div class="philosophy-block">
+  <section class="wrap phi-grid">
+    <div class="phi-img glass" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1578747763484-51b21a33e4fa?w=800&h=1000&fit=crop&auto=format&q=80" alt="Facial skincare device and roller">
+      <div class="tint"></div>
+    </div>
+    <div class="phi-copy">
+      <div class="eyebrow">Our Approach</div>
+      <h2>A Smarter Approach<br>to Skin Longevity</h2>
+      <p>True luxury isn't about doing more — it's about doing what's right for your skin. We focus on the foundation: supporting collagen, strengthening the skin barrier, and promoting long-term health.</p>
+      <p>Rather than chasing temporary results, we combine regenerative medicine and evidence-based treatments so skin ages naturally and beautifully.</p>
+    </div>
+  </section>
+</div>
+
+<section class="cta-band">
+  <div class="wrap" style="padding:0;">
+    <div class="eyebrow" style="justify-content:center; color:var(--gold);">Ready When You Are</div>
+    <h2>Begin with a consultation</h2>
+    <p>Explore our wellness and aesthetic treatments, or book a visit directly.</p>
+    <a href="#book" class="btn">Book Appointment</a>
+  </div>
+</section>
+</div>
+
+<div class="page" id="page-treatments">
+<section class="page-hero" style="padding-bottom:0;">
+  <div class="eyebrow" style="justify-content:center;">Treatments<span class="kr-inline"><span class="dot">·</span>시술</span></div>
+  <h1>Wellness &amp; Aesthetics,<br>Personalized</h1>
+  <p class="sub">Each treatment is personalized to the individual — browse by category below.</p>
+</section>
+
+<section class="wrap" style="padding-top:3rem;">
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="tab-offers">Special Offers</button>
+    <button class="tab-btn" data-tab="tab-wellness">Wellness</button>
+    <button class="tab-btn" data-tab="tab-aesthetics">Aesthetics</button>
+    <button class="tab-btn" data-tab="tab-signature">Signature Korean Skin Treatments</button>
+  </div>
+
+  <!-- ===================== WELLNESS ===================== -->
+  <div class="tab-panel" id="tab-wellness">
+
+    <div class="group-title">IV Hydration &amp; Nutrient Therapy</div>
+    <p class="group-sub">Tap any treatment to see what's included and its benefits.</p>
+
+    <details class="item glass">
+      <summary><span>Hangover Relief <span class="price">$299</span></span><span class="plus">+</span></summary>
+      <div class="item-body">
+        <p>Why spend an entire day recuperating? Get hangover recovery as soon as you need it. This IV revival drip can help alleviate headaches and nausea while helping you get back on your feet with a boost of energy and hydration.</p>
+        <div class="cols">
+          <div><h4>What's Included</h4><ul><li>B Complex</li><li>Zofran</li><li>Toradol</li></ul></div>
+          <div><h4>Benefits</h4><ul><li>Headache relief</li><li>Nausea relief</li><li>Natural energy support</li><li>Rehydration</li><li>Replenishment of essential minerals and electrolytes</li><li>Relief from fatigue and stress</li><li>pH balance</li></ul></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="item glass">
+      <summary><span>Headache Relief <span class="price">$399</span></span><span class="plus">+</span></summary>
+      <div class="item-body">
+        <p>Who has time for headaches? Our Headache Relief IV Therapy contains anti-inflammatory medication and vitamins to help alleviate symptoms and support recovery.</p>
+        <div class="cols">
+          <div><h4>What's Included</h4><ul><li>Magnesium</li><li>Toradol</li><li>Benadryl</li></ul></div>
+          <div><h4>Benefits</h4><ul><li>Headache relief</li><li>Nausea relief</li><li>Rehydration</li><li>Replenishment of essential nutrients</li></ul></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="item glass">
+      <summary><span>Immunity <span class="price">$349</span></span><span class="plus">+</span></summary>
+      <div class="item-body">
+        <p>Your immune system works hard to protect your body. Our Immunity IV Therapy provides essential nutrients to support your body's natural defenses.</p>
+        <div class="cols">
+          <div><h4>What's Included</h4><ul><li>Vitamin C</li><li>B Complex</li><li>Zinc</li><li>B12</li></ul></div>
+          <div><h4>Benefits</h4><ul><li>Immune system support</li><li>Support for fighting infections</li><li>Replenishment of essential minerals and electrolytes</li><li>Natural energy support</li><li>Rehydration</li><li>pH balance</li></ul></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="item glass">
+      <summary><span>Jet Lag <span class="price">$389</span></span><span class="plus">+</span></summary>
+      <div class="item-body">
+        <p>Traveling across different time zones doesn't need to be a challenge. Our Jet Lag IV Therapy helps support your body's adjustment to changing time zones while providing energy and hydration.</p>
+        <div class="cols">
+          <div><h4>What's Included</h4><ul><li>Vitamin C</li><li>B Complex</li><li>Zinc</li><li>Magnesium</li><li>B12</li><li>Toradol</li><li>Pepcid</li></ul></div>
+          <div><h4>Benefits</h4><ul><li>Headache relief</li><li>Anti-inflammatory support</li><li>Immune system support</li><li>Natural energy support</li><li>Rehydration</li><li>Replenishment of essential minerals and electrolytes</li></ul></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="item glass">
+      <summary><span>Beauty <span class="price">$399</span></span><span class="plus">+</span></summary>
+      <div class="item-body">
+        <p>Want to look and feel your very best? Our Beauty IV Therapy provides hydration and nutrients to support the health and appearance of your hair, skin, and nails.</p>
+        <div class="cols">
+          <div><h4>What's Included</h4><ul><li>Vitamin C</li><li>B Complex</li><li>Biotin</li><li>Glutathione</li></ul></div>
+          <div><h4>Benefits</h4><ul><li>Supports the health, look, and feel of hair, skin, and nails</li><li>Cleanses and hydrates from the inside out</li><li>Supports antioxidant protection</li><li>Helps replenish essential nutrients</li><li>pH balance</li></ul></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="item glass">
+      <summary><span>Fitness Recovery <span class="price">$329</span></span><span class="plus">+</span></summary>
+      <div class="item-body">
+        <p>Get an edge on your performance with our Fitness Recovery IV Treatment. Designed for athletes and active individuals, this IV nutrition therapy supports recovery and energy.</p>
+        <div class="cols">
+          <div><h4>What's Included</h4><ul><li>B Complex</li><li>Taurine or Carnitine</li></ul></div>
+          <div><h4>Benefits</h4><ul><li>Enhanced athletic performance</li><li>Supports muscle recovery and regeneration</li><li>Natural energy support</li><li>pH balance</li></ul></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="item glass">
+      <summary><span>Flu Treatment <span class="price">$399</span></span><span class="plus">+</span></summary>
+      <div class="item-body">
+        <p>Our Cold and Flu IV Treatment provides essential nutrients to support the immune system and help alleviate aches, pains, and other symptoms associated with illness.</p>
+        <div class="cols">
+          <div><h4>What's Included</h4><ul><li>Vitamin C</li><li>B Complex</li><li>Zinc</li><li>Magnesium</li><li>B12</li><li>Toradol</li><li>Pepcid</li></ul></div>
+          <div><h4>Benefits</h4><ul><li>Headache and body ache relief</li><li>Anti-inflammatory support</li><li>Nausea relief</li><li>Immune system support</li><li>Energy and rehydration support</li></ul></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="item glass">
+      <summary><span>Myers Cocktail <span class="price">$299</span></span><span class="plus">+</span></summary>
+      <div class="item-body">
+        <p>The world-famous Myers Cocktail IV provides a blend of vitamins and minerals designed to support the body's natural systems. It may be used to support individuals experiencing migraine headaches, allergies, anxiety, muscle spasms, colds, flu, fatigue, and other concerns.</p>
+        <div class="cols">
+          <div><h4>What's Included</h4><ul><li>Vitamin C</li><li>B Complex</li><li>Magnesium</li><li>B12</li></ul></div>
+          <div><h4>Potential Benefits</h4><ul><li>Mood support</li><li>Fatigue support</li><li>Muscle recovery</li><li>Support for muscle spasms and menstrual cramps</li><li>Athletic performance support</li><li>Immune system support</li></ul></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="item glass">
+      <summary><span>Food Poisoning Support <span class="price">$299</span></span><span class="plus">+</span></summary>
+      <div class="item-body">
+        <p>This IV therapy helps replenish fluids and electrolytes lost due to vomiting and diarrhea, which can help prevent dehydration and support recovery.</p>
+        <div class="cols">
+          <div><h4>What's Included</h4><ul><li>B Complex</li><li>Zofran</li><li>Toradol</li></ul></div>
+          <div><h4>Benefits</h4><ul><li>Replenishes fluids and electrolytes</li><li>Supports recovery from dehydration</li><li>Helps restore energy levels</li><li>Provides anti-nausea support</li></ul></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="item glass">
+      <summary><span>Post-Surgery Support <span class="price">$349</span></span><span class="plus">+</span></summary>
+      <div class="item-body">
+        <p>Our postoperative IV includes Vitamin C, B Complex, Zinc, and anti-nausea medication. This synergistic blend may support energy production, immune function, wound healing, and recovery.</p>
+        <div class="cols">
+          <div><h4>What's Included</h4><ul><li>Vitamin C</li><li>B Complex</li><li>Zinc</li><li>Zofran</li></ul></div>
+        </div>
+      </div>
+    </details>
+
+    <div class="group-title">NAD+ IV Therapy</div>
+    <div class="simple-list glass">
+      <div style="display:flex; gap:2rem; flex-wrap:wrap; margin-bottom:.8rem;">
+        <h3 style="margin:0;">NAD+ 500 mg — <span style="color:var(--rose-deep);">$699</span></h3>
+        <h3 style="margin:0;">NAD+ 1,000 mg — <span style="color:var(--rose-deep);">$899</span></h3>
+      </div>
+      <p style="margin:0;">NAD+ is a coenzyme involved in numerous cellular processes and has become increasingly popular as part of wellness and healthy-aging protocols. NAD+ IV therapy is designed to support cellular energy and overall wellness. Treatment protocols should be personalized based on individual needs and medical evaluation.</p>
+    </div>
+
+    <div class="group-title">Wellness Injections</div>
+    <div class="card-grid">
+      <div class="tcard glass"><h3>Vitamin B12</h3><p style="margin:0;">A vitamin booster designed to support energy, metabolism, and overall wellness.</p></div>
+      <div class="tcard glass"><h3>Vitamin D3</h3><p style="margin:0;">Vitamin D plays an important role in bone, muscle, and immune health. Supplementation may be appropriate for individuals with insufficient Vitamin D levels.</p></div>
+      <div class="tcard glass"><h3>Glutathione</h3><p style="margin:0;">A powerful antioxidant that supports the body's natural cellular defense systems.</p></div>
+      <div class="tcard glass"><h3>Biotin</h3><p style="margin:0;">Supports the natural proteins involved in healthy hair and nails.</p></div>
+    </div>
+
+    <div class="group-title">GLP-1 Microdosing</div>
+    <div class="simple-list glass">
+      <p>GLP-1 microdosing is a personalized approach to weight management that uses a smaller dose of GLP-1 medication than standard regimens. These medications mimic a natural hormone that helps regulate appetite, digestion, and blood sugar.</p>
+      <p style="margin:0;">By beginning at a lower dose and increasing gradually only as needed, microdosing may offer a more individualized approach to treatment. Treatment should be personalized and medically supervised.</p>
+    </div>
+  </div>
+
+  <!-- ===================== AESTHETICS ===================== -->
+  <div class="tab-panel" id="tab-aesthetics">
+
+    <div class="group-title">Neurotoxins</div>
+    <div class="simple-list glass"><ul><li>Botox</li><li>Dysport</li><li>Xeomin</li></ul></div>
+
+    <div class="group-title">Dermal Fillers &amp; Collagen Stimulators</div>
+    <div class="simple-list glass"><ul><li>Juvéderm</li><li>Restylane</li><li>Radiesse</li><li>Sculptra</li></ul></div>
+
+    <div class="group-title">Skin Boosters</div>
+    <div class="simple-list glass"><ul><li>Skinvive</li><li>Exosomes</li><li>Rejuran</li><li>PRP</li><li>NAD+</li><li>Glutathione</li><li>ECM</li></ul></div>
+
+    <div class="group-title">Advanced Skin Treatments</div>
+    <div class="simple-list glass">
+      <ul>
+        <li>RF Microneedling</li>
+        <li>Acne Scar Treatment</li>
+        <li>Hair Restoration
+          <ul><li>PRP</li><li>Exosomes</li></ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="group-title">Skin Tightening</div>
+    <details class="item glass">
+      <summary><span>Oligio</span><span class="plus">+</span></summary>
+      <div class="item-body">
+        <p>Oligio is a non-invasive skin tightening and contouring treatment originating from South Korea that utilizes monopolar radiofrequency (RF) energy. By delivering targeted heat into the dermal and subcutaneous layers, it stimulates collagen production and helps tighten sagging skin without surgery or significant downtime.</p>
+      </div>
+    </details>
+    <details class="item glass">
+      <summary><span>Dermotoxin</span><span class="plus">+</span></summary>
+      <div class="item-body">
+        <p>Dermotoxin involves injecting small amounts of Botox into the dermis. It may help improve the appearance of fine lines, elasticity, pores, excess sebum, and overall skin lift.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- ===================== SPECIAL OFFERS ===================== -->
+  <div class="tab-panel active" id="tab-offers">
+
+    <div class="offer-card glass">
+      <span class="tag">Limited Time</span>
+      <h3>Xeomin Botox Bank</h3>
+      <p style="margin:0 0 1.2rem;">Share your Botox Bank with up to two family members or friends.</p>
+      <div class="card-grid cols-3" style="margin-bottom:0;">
+        <div class="tcard glass">
+          <h4 style="margin:0 0 .4rem; font-family:'Cormorant Garamond',serif; font-size:1.2rem;">100 Units</h4>
+          <div class="offer-price"><span class="was">$1,400</span><span class="now">$900</span></div>
+        </div>
+        <div class="tcard glass">
+          <h4 style="margin:0 0 .4rem; font-family:'Cormorant Garamond',serif; font-size:1.2rem;">200 Units</h4>
+          <div class="offer-price"><span class="was">$2,800</span><span class="now">$1,600</span></div>
+        </div>
+        <div class="tcard glass">
+          <h4 style="margin:0 0 .4rem; font-family:'Cormorant Garamond',serif; font-size:1.2rem;">300 Units</h4>
+          <div class="offer-price"><span class="was">$4,000</span><span class="now">$2,100</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="offer-card glass">
+      <h3>Choose Your Own IV Package</h3>
+      <div class="offer-price"><span class="now">$1,500</span></div>
+      <p style="margin:0;">Choose any five IV treatments. Excludes NAD+. Share your treatments with up to two family members or friends.</p>
+    </div>
+
+    <div class="offer-card glass">
+      <span class="tag">Limited to 10 Patients</span>
+      <h3>Oligio + Rejuran + Beauty IV Special</h3>
+      <div class="offer-price"><span class="now">$1,999</span></div>
+      <ul style="margin:0; padding-left:1.2rem; color:var(--ink-soft);">
+        <li>Oligio — 600 shots</li>
+        <li>Rejuran Skin Booster</li>
+        <li>Beauty IV Therapy</li>
+        <li>Complimentary facial hydro treatment with all IV therapies</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== SIGNATURE ===================== -->
+  <div class="tab-panel" id="tab-signature">
+    <p class="group-sub" style="margin-bottom:2.4rem;">Our signature line of Korean skin treatments, from a quick reset to a full regenerative protocol.</p>
+
+    <div class="sig-card glass">
+      <div class="sig-head"><h3>The Upkeeper</h3><span class="sig-price">$219</span></div>
+      <div class="sig-meta">45 minutes · Flat rate — no tip · Facial treatment — no consultation required</div>
+      <p>A top-of-the-line Korean Hydrafacial with extractions and skin boosters customized to your skin's needs. Korean hydrofacial technology is known for creating a glass-skin effect — this powerful hydrodermabrasion treatment combines cleansing, exfoliation, extraction, hydration, and antioxidant protection.</p>
+      <p>Unlike traditional hydrofacials, our serums include Centella Asiatica, a renowned Korean skincare ingredient known for its soothing and anti-inflammatory properties. Finishes with a skin-strengthening ampoule and modeling mask to help improve the appearance of wrinkles, fine lines, blackheads, and acne.</p>
+      <p style="margin:0;"><strong>Treatment may include:</strong></p>
+      <ul><li>High-frequency therapy</li><li>LED light therapy</li><li>Additional extractions</li></ul>
+    </div>
+
+    <div class="sig-card glass">
+      <div class="sig-head"><h3>The Devotee</h3><span class="sig-price">$349</span></div>
+      <div class="sig-meta">45 minutes · Flat rate — no tip · Facial treatment — no consultation required</div>
+      <p>A cutting-edge skin regeneration treatment from South Korea that combines nanoneedling with advanced topical skin-regeneration ingredients. Spicules — tiny topical needles derived from hydrolyzed sea sponges — help stimulate skin regeneration through microdermabrasion and chemical exfoliation.</p>
+      <p style="margin:0;">Exosomes support communication between skin cells and may help support the skin's natural regenerative processes.</p>
+    </div>
+
+    <div class="sig-card glass">
+      <div class="sig-head"><h3>The Disciple</h3><span class="sig-price">$949</span></div>
+      <div class="sig-meta">75 minutes · Flat rate — no tip · Medical consultation included in the first 30 minutes</div>
+      <p>Medical microneedling paired with advanced skin boosters to improve skin resilience, texture, and elasticity. Controlled micro-injury stimulates collagen renewal while helping active ingredients absorb more deeply for smoother, stronger, clearer skin.</p>
+      <p>The Disciple is a foundational, preventative treatment designed to strengthen skin over time — not simply chase short-term glow. Depending on your goals, treatment may be paired with advanced Korean skin boosters such as:</p>
+      <ul><li>Rejuran HB</li><li>Rejuran Healer</li><li>Juvelook</li><li>Exosomes</li><li>Skinvive</li></ul>
+      <p style="margin:.8rem 0 0;">Redness is expected as the skin begins its repair process. Skin preparation and aftercare are provided by our medical team.</p>
+    </div>
+
+    <div class="sig-card glass">
+      <div class="sig-head"><h3>The Evangelist</h3><span class="sig-price">$1,499</span></div>
+      <div class="sig-meta">75 minutes · Flat rate — no tip · Medical consultation included in the first 30 minutes</div>
+      <p>Injectable skin boosters are delivered evenly throughout the skin through precise micro-injections to improve hydration, elasticity, skin thickness, and the appearance of pores. This focused skin-quality treatment is designed to support deeper hydration, visible plumpness, and stronger, more resilient skin.</p>
+      <p>Unlike The Disciple, which uses controlled micro-injury to stimulate repair, The Evangelist places skin-rebuilding ingredients directly into the skin. Treatment may include:</p>
+      <ul><li>Skinvive</li><li>Rejuran HB</li><li>Rejuran Healer</li></ul>
+      <p style="margin:.8rem 0 0;">Tiny raised bumps are expected temporarily after treatment. Skin preparation and aftercare are provided by our medical team.</p>
+    </div>
+
+    <div class="sig-card glass">
+      <div class="sig-head"><h3>The Idealist</h3><span class="sig-price">$2,199</span></div>
+      <div class="sig-meta">90 minutes · Flat rate — no tip · Medical consultation included in the first 30 minutes</div>
+      <p>Our signature treatment for achieving gradual, natural-looking skin rejuvenation, built around collagen-stimulating skin boosters delivered through precise micro-injections. The treatment targets:</p>
+      <ul><li>Skin longevity</li><li>Elasticity</li><li>Skin thickness</li><li>Skin tightness</li><li>Pore appearance</li><li>Deep hydration</li></ul>
+      <p style="margin:.8rem 0 0;">The results are designed to develop gradually and naturally over time. Tiny raised bumps are expected temporarily after treatment. A soothing, cooling mask completes the treatment.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap" style="padding:0;">
+    <h2>Not sure where to start?</h2>
+    <p>Book a consultation and we'll build a plan around your skin and goals.</p>
+    <a href="#book" class="btn">Book Appointment</a>
+  </div>
+</section>
+</div>
+
+<div class="page" id="page-book">
+<section class="page-hero" style="padding-bottom:2.5rem;">
+  <div class="eyebrow" style="justify-content:center;">Book Appointment<span class="kr-inline"><span class="dot">·</span>예약하기</span></div>
+  <h1>Let's Find Your<br>Right Treatment</h1>
+  <p class="sub" style="margin-top:1rem;">Request an appointment online, or call us directly — whichever is easier.</p>
+</section>
+
+<section class="wrap" style="padding-top:0; padding-bottom:2.5rem;">
+  <a href="tel:+16502888467" class="call-banner glass">
+    <div class="cb-left">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2Z"/></svg></div>
+      <div>
+        <h3>Call Us Directly</h3>
+        <p>Prefer to talk it through? Our team is happy to help you book by phone.</p>
+      </div>
+    </div>
+    <span class="cb-number">(650) 288-8467</span>
+  </a>
+</section>
+
+<section class="wrap" id="booking-form" style="padding-top:0;">
+  <div class="eyebrow" style="justify-content:center;">Request Online<span class="kr-inline"><span class="dot">·</span>온라인 예약</span></div>
+  <h2 style="text-align:center;">Request an Appointment</h2>
+  <div class="form-wrap glass">
+    <form id="bookingForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="b-name">Full Name</label>
+          <input type="text" id="b-name" required>
+        </div>
+        <div class="field">
+          <label for="b-phone">Phone</label>
+          <input type="tel" id="b-phone" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="b-email">Email</label>
+        <input type="email" id="b-email" required>
+      </div>
+
+      <div class="field">
+        <label>Treatment(s) of Interest</label>
+        <div class="check-groups" id="treatmentChecks">
+          <fieldset>
+            <legend>Wellness — IV Therapy</legend>
+            <label><input type="checkbox" value="Hangover Relief">Hangover Relief</label>
+            <label><input type="checkbox" value="Headache Relief">Headache Relief</label>
+            <label><input type="checkbox" value="Immunity">Immunity</label>
+            <label><input type="checkbox" value="Jet Lag">Jet Lag</label>
+            <label><input type="checkbox" value="Beauty IV">Beauty IV</label>
+            <label><input type="checkbox" value="Fitness Recovery">Fitness Recovery</label>
+            <label><input type="checkbox" value="Flu Treatment">Flu Treatment</label>
+            <label><input type="checkbox" value="Myers Cocktail">Myers Cocktail</label>
+            <label><input type="checkbox" value="Food Poisoning Support">Food Poisoning Support</label>
+            <label><input type="checkbox" value="Post-Surgery Support">Post-Surgery Support</label>
+            <label><input type="checkbox" value="NAD+ IV Therapy">NAD+ IV Therapy</label>
+          </fieldset>
+          <fieldset>
+            <legend>Wellness — Injections</legend>
+            <label><input type="checkbox" value="Vitamin B12">Vitamin B12</label>
+            <label><input type="checkbox" value="Vitamin D3">Vitamin D3</label>
+            <label><input type="checkbox" value="Glutathione">Glutathione</label>
+            <label><input type="checkbox" value="Biotin">Biotin</label>
+            <label><input type="checkbox" value="GLP-1 Microdosing">GLP-1 Microdosing</label>
+          </fieldset>
+          <fieldset>
+            <legend>Aesthetics</legend>
+            <label><input type="checkbox" value="Neurotoxins (Botox / Dysport / Xeomin)">Neurotoxins (Botox / Dysport / Xeomin)</label>
+            <label><input type="checkbox" value="Dermal Fillers">Dermal Fillers</label>
+            <label><input type="checkbox" value="Skin Boosters">Skin Boosters</label>
+            <label><input type="checkbox" value="RF Microneedling">RF Microneedling</label>
+            <label><input type="checkbox" value="Oligio Skin Tightening">Oligio Skin Tightening</label>
+            <label><input type="checkbox" value="Dermotoxin">Dermotoxin</label>
+          </fieldset>
+          <fieldset>
+            <legend>Signature Korean Skin Treatments</legend>
+            <label><input type="checkbox" value="The Upkeeper — $219">The Upkeeper — $219</label>
+            <label><input type="checkbox" value="The Devotee — $349">The Devotee — $349</label>
+            <label><input type="checkbox" value="The Disciple — $949">The Disciple — $949</label>
+            <label><input type="checkbox" value="The Evangelist — $1,499">The Evangelist — $1,499</label>
+            <label><input type="checkbox" value="The Idealist — $2,199">The Idealist — $2,199</label>
+          </fieldset>
+          <fieldset>
+            <legend>Special Offers</legend>
+            <label><input type="checkbox" value="Xeomin Botox Bank">Xeomin Botox Bank</label>
+            <label><input type="checkbox" value="Choose Your Own IV Package">Choose Your Own IV Package</label>
+            <label><input type="checkbox" value="Oligio + Rejuran + Beauty IV Special">Oligio + Rejuran + Beauty IV Special</label>
+          </fieldset>
+          <fieldset>
+            <legend>Not Sure Yet</legend>
+            <label><input type="checkbox" value="I'd like a consultation">I'd like a consultation</label>
+          </fieldset>
+        </div>
+        <span class="selected-count" id="selectedCount">No treatments selected yet</span>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="b-date">Preferred Date</label>
+          <input type="date" id="b-date">
+        </div>
+        <div class="field">
+          <label for="b-time">Preferred Time</label>
+          <input type="time" id="b-time">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="b-notes">Notes (optional)</label>
+        <textarea id="b-notes" rows="4" placeholder="Tell us about your goals, or any questions before your visit."></textarea>
+      </div>
+
+      <button type="submit" class="btn filled" style="width:100%; justify-content:center;">Request Appointment</button>
+      <p class="form-note">Submitting opens an email to our booking team with your details — we'll follow up to confirm a time. For faster booking, call us directly at <a href="tel:+16502888467" style="color:var(--rose-deep);">(650) 288-8467</a>.</p>
+    </form>
+
+    <div class="form-success" id="bookSuccess">
+      Thank you — your email client should now be open with your request. If it didn't open, please email us directly at <a href="mailto:contact@danawellness.com" style="color:var(--rose-deep);">contact@danawellness.com</a>.
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:3rem;">
+  <div class="info-grid">
+    <div class="info-card glass">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 5h16v14H4z"/><path d="M4 8h16"/><path d="M8 3v4M16 3v4"/></svg></div>
+      <h4>Hours</h4>
+      <p>[Add clinic hours here]<br>e.g. Tue–Sat, 10am–6pm</p>
+    </div>
+    <div class="info-card glass">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2Z"/></svg></div>
+      <h4>Call Us</h4>
+      <p><a href="tel:+16502888467" style="color:inherit;">(650) 288-8467</a></p>
+    </div>
+    <div class="info-card glass">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg></div>
+      <h4>Email</h4>
+      <p><a href="mailto:contact@danawellness.com" style="color:inherit;">contact@danawellness.com</a></p>
+    </div>
+  </div>
+
+  <details class="guidance glass">
+    <summary>Treatment Guidance</summary>
+    <p>Each treatment is personalized to the individual's skin, health history, goals, and treatment plan. Medical consultations, pre-care instructions, post-care instructions, expected results, and frequently asked questions are provided as part of the treatment experience when applicable.</p>
+  </details>
+</section>
+</div>
+
+<div class="page" id="page-contact">
+<section class="page-hero" style="padding-bottom:2.5rem;">
+  <div class="eyebrow" style="justify-content:center;">Contact<span class="kr-inline"><span class="dot">·</span>문의하기</span></div>
+  <h1>We'd Love to<br>Hear From You</h1>
+  <p class="sub" style="margin-top:1rem;">Send a message below, or call us — whichever you prefer.</p>
+</section>
+
+<section class="wrap" style="padding-top:0;">
+  <div class="form-wrap glass">
+    <div class="eyebrow" style="justify-content:center;">Send a Message<span class="kr-inline"><span class="dot">·</span>메시지 보내기</span></div>
+    <h2 style="text-align:center;">Get in Touch</h2>
+    <p style="text-align:center; margin:0 auto 1.6rem; max-width:44ch;">Prefer to talk? Call us directly at <a href="tel:+16502888467" style="color:var(--rose-deep);">(650) 288-8467</a> — we're happy to help you book or answer questions over the phone.</p>
+    <form id="contactForm" style="margin-top:1.5rem;">
+      <div class="field">
+        <label for="c-name">Full Name</label>
+        <input type="text" id="c-name" required>
+      </div>
+      <div class="field">
+        <label for="c-email">Email</label>
+        <input type="email" id="c-email" required>
+      </div>
+      <div class="field">
+        <label for="c-message">Message</label>
+        <textarea id="c-message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn filled" style="width:100%; justify-content:center;">Send Message</button>
+      <p class="form-note">Submitting opens an email to us with your message. Prefer to book directly? Visit our <a href="#book" style="color:var(--rose-deep);">Book Appointment</a> page.</p>
+    </form>
+    <div class="form-success" id="contactSuccess">
+      Thank you for reaching out — your email client should now be open with your message. If it didn't open, please email us directly at <a href="mailto:contact@danawellness.com" style="color:var(--rose-deep);">contact@danawellness.com</a>.
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:3rem;">
+  <div class="info-grid">
+    <div class="info-card glass">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <h4>Visit</h4>
+      <p>215 N San Mateo Dr<br>San Mateo, CA 94401</p>
+    </div>
+    <div class="info-card glass">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2Z"/></svg></div>
+      <h4>Call</h4>
+      <p><a href="tel:+16502888467" style="color:inherit;">(650) 288-8467</a></p>
+    </div>
+    <div class="info-card glass">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg></div>
+      <h4>Email</h4>
+      <p><a href="mailto:contact@danawellness.com" style="color:inherit;">contact@danawellness.com</a></p>
+    </div>
+  </div>
+
+  <a href="https://www.google.com/maps/search/?api=1&query=215+N+San+Mateo+Dr,+San+Mateo,+CA+94401" target="_blank" rel="noopener" class="map-block glass" style="text-decoration:none; flex-direction:column; gap:.6rem;">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" style="color:var(--rose-deep);"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span style="color:var(--ink); font-family:'Cormorant Garamond', serif; font-size:1.2rem;">215 N San Mateo Dr, San Mateo, CA 94401</span>
+    <span style="font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; color:var(--rose-deep);">Get Directions →</span>
+  </a>
+</section>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo"><span class="lc">dan</span><span class="cap">A</span> Wellness</div>
+        <p class="foot-desc">Beauty and wellness, together. Personalized aesthetic and wellness care rooted in Korean skincare philosophy.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Visit</h5>
+        <a href="#home">Home</a>
+        <a href="#treatments">Treatments</a>
+        <a href="#book">Book Appointment</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="mailto:contact@danawellness.com">contact@danawellness.com</a>
+        <a href="tel:+16502888467">(650) 288-8467</a>
+        <a href="#contact">215 N San Mateo Dr, San Mateo, CA 94401</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 danA Wellness.</span>
+      <span>&#45800;&#50500;&#54616;&#45796; &middot; graceful, refined, quietly elegant.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('nav.main');
+  if(toggle && nav){
+    toggle.addEventListener('click', () => nav.classList.toggle('open'));
+  }
+
+  const pages = document.querySelectorAll('.page');
+  const validPages = ['home','treatments','book','contact'];
+
+  function activateTab(tabId){
+    const btn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+    if(btn){
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+  }
+
+  function showPage(name, openTab){
+    if(!validPages.includes(name)) name = 'home';
+    pages.forEach(p => p.classList.toggle('active', p.id === 'page-' + name));
+    document.querySelectorAll('nav.main a[href^="#"]').forEach(a => {
+      const target = a.getAttribute('href').slice(1);
+      a.classList.toggle('active', target === name);
+    });
+    if(nav) nav.classList.remove('open');
+    window.scrollTo({top:0, behavior:'auto'});
+    if(openTab) activateTab(openTab);
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    const target = a.getAttribute('href').slice(1);
+    if(validPages.includes(target)){
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage(target, a.dataset.openTab);
+        try { history.replaceState(null, '', '#' + target); } catch(err) {}
+      });
+    }
+  });
+
+  showPage('home');
+
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  if(tabBtns.length){
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+        const tabsEl = document.querySelector('#page-treatments .tabs');
+        if(tabsEl) window.scrollTo({ top: tabsEl.offsetTop - 90, behavior: 'smooth' });
+      });
+    });
+  }
+
+  const treatmentChecks = document.getElementById('treatmentChecks');
+  const selectedCount = document.getElementById('selectedCount');
+  function updateSelectedCount(){
+    if(!treatmentChecks || !selectedCount) return;
+    const checked = treatmentChecks.querySelectorAll('input[type="checkbox"]:checked');
+    selectedCount.textContent = checked.length === 0
+      ? 'No treatments selected yet'
+      : `${checked.length} treatment${checked.length > 1 ? 's' : ''} selected`;
+  }
+  if(treatmentChecks){
+    treatmentChecks.addEventListener('change', updateSelectedCount);
+  }
+
+  const bookForm = document.getElementById('bookingForm');
+  if(bookForm){
+    bookForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('b-name').value;
+      const email = document.getElementById('b-email').value;
+      const phone = document.getElementById('b-phone').value;
+      const checked = Array.from(document.querySelectorAll('#treatmentChecks input[type="checkbox"]:checked')).map(c => c.value);
+      const treatment = checked.length ? checked.join(', ') : 'Not specified';
+      const date = document.getElementById('b-date').value;
+      const time = document.getElementById('b-time').value;
+      const notes = document.getElementById('b-notes').value;
+
+      const subject = encodeURIComponent(`Appointment Request — ${checked[0] || 'danA Wellness'}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nRequested Treatment(s): ${treatment}\nPreferred Date: ${date}\nPreferred Time: ${time}\nNotes: ${notes}`
+      );
+      window.location.href = `mailto:contact@danawellness.com?subject=${subject}&body=${body}`;
+
+      const success = document.getElementById('bookSuccess');
+      if(success){ success.classList.add('show'); }
+      bookForm.reset();
+      updateSelectedCount();
+    });
+  }
+
+  const contactForm = document.getElementById('contactForm');
+  if(contactForm){
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('c-name').value;
+      const email = document.getElementById('c-email').value;
+      const message = document.getElementById('c-message').value;
+
+      const subject = encodeURIComponent(`Message from ${name} — danA Wellness Website`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+      window.location.href = `mailto:contact@danawellness.com?subject=${subject}&body=${body}`;
+
+      const success = document.getElementById('contactSuccess');
+      if(success){ success.classList.add('show'); }
+      contactForm.reset();
+    });
+  }
+});
+
+</script>
+</body>
+</html>
